@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passagem de Dados</title>
+</head>
+<body>
+    
+    <div id="computed">
+
+        <h1>Nome {{ person.firstName }} </h1>
+
+        <h1>Nome Completo: (Computed) {{ fullName }} </h1>
+        <h1>Nome Completo: (Computed) {{ fullName }} </h1>
+        <h1>Nome Completo: (Computed) {{ fullName }} </h1>
+        <h1>Nome Completo: (Computed) {{ fullName }} </h1>
+        <h1>Nome Completo: (Computed) {{ fullName }} </h1>
+
+        <h1>Nome Completo:(Método) {{ getFullName() }} </h1>
+        <h1>Nome Completo:(Método) {{ getFullName() }} </h1>
+        <h1>Nome Completo:(Método) {{ getFullName() }} </h1>
+
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+
+        let app = new Vue({
+            el: '#computed',
+            data: {
+                person: {
+                    firstName: 'Myltiane',
+                    lastName: 'Alves'
+                } 
+            },
+            methods: {
+                getFullName: function() {
+                    console.log('Metodo')
+                    return `${this.person.firstName} ${this.person.lastName}`
+                }
+            },
+            
+            computed: {
+                fullName: function() {
+                    console.log('Computed é só chamado uma única vez independente do número de vezes que o método é chamado')
+                    return `${this.person.firstName} ${this.person.lastName}`
+                }
+            }
+            
+            
+        })
+    </script>
+  
+
+   
+
+
+</body>
+</html>
